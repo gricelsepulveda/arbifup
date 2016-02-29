@@ -1294,4 +1294,155 @@ span {
 	}
 }
 
+////////////////////////////////////QUIENES_SOMOS//////
 
+//Foto portada
+.portada {
+
+  		filter: blur(5px);
+  		
+}
+
+//Nosotros
+.nosotros {
+	width: 100%;
+	h1, h2, h3, h4, h5, h6, hr {
+		margin: 0;
+		margin-bottom: 0.5rem;
+		@media #{$sm} {
+			text-align: center;
+		}
+	}
+	h5 {
+		display: inline-block;
+		@media #{$sm} {
+			display: block;
+		}
+	}
+	button {
+		margin-bottom: 0.5rem;
+		@media #{$sm} {
+			display: block;
+			position: relative;
+			margin: 0 auto;
+			margin-bottom: 0.5rem;
+		}
+	}
+	i {
+		color: $blanco;
+		background-color: $amarillo;
+		padding: 3px 6px 2px 5px;
+		border: 1px solid $amarillo;
+		border-radius: 20px;
+		cursor: pointer;
+		margin-left: 0.25rem;
+		font-size: 0.5rem;
+		@include animar;
+		&:hover {
+			background-color: $blanco;
+			color: $amarillo;
+		}
+		text: {
+			align: center;
+			transform: uppercase;
+		}
+	}
+	span {
+		margin-left: 0.25rem;
+		font: {
+			family: "Enigmatic Italic", sans-serif;
+			style: italic;
+		}
+	}
+	ul {
+		display: block;
+		margin-left: 0.5rem;
+		margin-bottom: -0.5rem;
+		margin-top: 0rem;
+	}
+	li {
+		cursor: pointer;
+		display: inline-block;
+		background-color: $negro;
+		color: $gris;
+		margin-right: 1px!important;
+		font: {
+			size: 0.8rem;
+			family: 'Enigmatic', sans-serif;
+		}
+		padding: 0.2rem 2rem 0.2rem 2rem;
+		text: {
+			transform: uppercase;
+			align: center;
+		}
+		@media #{$xs} {
+			font-size: 0.5rem;
+			padding: 0.6rem 0.1rem 0.2rem 0.1rem;
+			width: 65px;
+			height: 30px;
+			border-radius: 0.6rem 0.6rem 0px 0px;
+		}
+		&:first-child{
+			@media #{$xs} {
+				border-radius: 0rem 0.6rem 0px 0px;
+			}
+		}
+	}
+	.tab {
+		@media #{$xs} {
+			border-radius: 0rem 0.6rem 0.6rem 0rem;
+			margin-bottom: 0.5rem;
+		}
+	}
+	.contenedor > .cuerpo > figure {
+		@extend .col-xs-12;
+		@extend .col-sm-12;
+		@extend .col-md-4;
+		@extend .col-lg-3;
+		overflow: hidden;
+		@include cero;
+		padding: 0.5rem 0.25rem 0.5rem 0.5rem;
+		@media #{$sm} {
+			padding: 0.5rem 0.5rem 0rem 0.5rem;
+		}
+	}
+	.contenedor > .cuerpo > figure > img {
+		position: relative;
+		width: 100%;
+	}
+	.contenedor > .cuerpo > article {
+		@extend .col-xs-12;
+		@extend .col-sm-12;
+		@extend .col-md-8;
+		@extend .col-lg-9;
+		@include cero;
+		padding: 0.5rem;
+	}
+}
+
+#noticia_activo{
+	background-color: $rojo;
+	color: $blanco;
+}
+
+.caret{
+	position: absolute;
+	top: 60px;
+	display: inline-block;
+	width: 0; 
+	height: 0; 
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-top: 15px solid $rojo;
+	display: none;
+	@media #{$sm_absoluto} {
+		top:45px;
+	}
+	@media #{$xs_absoluto} {
+		top:57px;
+	}
+}
+
+.caret_on{
+	display: inline-block;
+}
