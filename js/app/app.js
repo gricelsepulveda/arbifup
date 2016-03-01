@@ -37,6 +37,10 @@
             templateUrl:'angular_pages/noticias.html',
             controller:'noticiasController',
         })
+        .when('/servicios_portada',{
+            templateUrl:'angular_pages/serv_portada.html',
+            controller:'servPortadaController',
+        })
         $httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
     }])
     app.controller('tabController', function(){

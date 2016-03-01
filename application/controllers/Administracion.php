@@ -155,6 +155,34 @@ class Administracion extends CI_Controller {
 
             }
         }
+         function servicio_portada()
+        {   
+            $this->load->model('Modadministracion');
+            $_FILES["file"]["name"] = strtotime("now");
+            $file = $_FILES["file"]["name"];
+            echo $file;
+            $titulo = $_POST["titulo"];
+            $txt1 = $_POST["txt1"];
+
+            if(!is_dir("files/"))
+            {
+            mkdir("files/", 0777);
+            }
+            else{
+                chmod("files/",0777);
+            }
+         
+            if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "files/".$file))
+            {
+                $datos = $this->Modadministracion->modificar_servicios_portada($titulo,$txt1,$file);
+                echo json_encode($datos);
+            }
+            else
+            {
+                $datos = $this->Modadministracion->modificar_servicios_portada2($titulo,$txt1);
+                echo json_encode($datos);
+            }
+        }
 		 public function ajax()
 		{
 			//$this->usuario->verificar();
@@ -209,6 +237,10 @@ class Administracion extends CI_Controller {
                 break;
                 case 12:
                     $datos = $this->Modadministracion->traer_not_imagenes($_POST['codImagen']);
+                    echo json_encode($datos);
+                break;
+                case 13:
+                    $datos = $this->Modadministracion->traer_servicios_portada();
                     echo json_encode($datos);
                 break;
 			}

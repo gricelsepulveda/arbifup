@@ -44,7 +44,6 @@ class Welcome extends CI_Controller {
 			//crear la session del usuar
 			//cargar log
 			$this->session->set_userdata('logged_in', $resp);
-			
 		}
 		else
 		{

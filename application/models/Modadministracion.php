@@ -247,6 +247,34 @@
             $this->db->update('not_imagenes', $data); 
             
         }
+        function modificar_servicios_portada($titulo,$desc,$file)
+        {
+             $data = array(
+                'titulo' => $titulo,
+                'descripcion' => $desc,
+                'imagen' => $file
+                );
+            
+            $this->db->where('id', 1);
+            $this->db->update('serv_portada', $data);
+        }
+       function modificar_servicios_portada2($titulo,$desc)
+        {
+             $data = array(
+                'titulo' => $titulo,
+                'descripcion' => $desc
+                );
+            
+            $this->db->where('id', 1);
+            $this->db->update('serv_portada', $data);
+        }
+        function traer_servicios_portada()
+        {
+            $query = $this->db->get('serv_portada');
+            $datos = $query->result_array();
+            
+            return $datos;
+        }
         
 
         
