@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en" ng-app="app2">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"><!--AUX RESPONSIVO-->
@@ -18,7 +18,7 @@
 	<script type="text/javascript" src="<?php  echo base_url(); ?>js/angular-route.js"></script>
 	<script type="text/javascript" src="<?php  echo base_url(); ?>js/login.js"></script>
 	<script type="text/javascript" src="<?php  echo base_url(); ?>js/uikit.min.js"></script>
-	<script type="text/javascript" src="<?php  echo base_url(); ?>js/app/app.js"></script>
+	<script type="text/javascript" src="<?php  echo base_url(); ?>js/app/app2.js"></script>
     <script type="text/javascript" src="<?php  echo base_url(); ?>js/bootstrap.min.js"></script><!--BOOTSTRAP JS-->
     <script type="text/javascript" src="<?php  echo base_url(); ?>js/scripts.js"></script><!--SCRIPT PERSONALIZADO-->
     <script type="text/javascript" src="<?php  echo base_url(); ?>js/twitter.js"></script><!--SCRIPT PERSONALIZADO-->
@@ -42,12 +42,12 @@
     <nav class="navegacion navi">
         <ul>
             <li id="navegacion_menu" class="hidden-lg hidden-md">Menú</li>
-            <a href="#gol"><li class="navegacion_activo" id="inicio">Inicio</li></a>
-            <a href="#gol"><li id="quienessomos">Quiénes somos</li></a>
-            <a href="#gol"><li id="noticias">Noticias</li></a>
-            <a href="#gol"><li id="media">Media</li></a>
-            <a href="#gol"><li id="servicios">Servicios</li></a>
-            <a href="#gol"><li id="designaciones">Designaciones</li></a>
+            <a href="Welcome"><li class="navegacion_activo" id="inicio">Inicio</li></a>
+            <a href="Quienes"><li id="quienessomos">Quiénes somos</li></a>
+            <a href="Noticias"><li id="noticias">Noticias</li></a>
+            <a href="Media"><li id="media">Media</li></a>
+            <a href="Servicios"><li id="servicios">Servicios</li></a>
+            <a href="Designaciones"><li id="designaciones">Designaciones</li></a>
         </ul>
     </nav>
     <!--FIN PERMANENTE-->
