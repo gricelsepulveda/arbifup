@@ -283,6 +283,12 @@ class Administracion extends CI_Controller {
                     $datos = $this->Modadministracion->traer_media_portada();
                     echo json_encode($datos);
                 break;
+                 case 19:
+                    $datos = $this->Modadministracion->traer_media_album();
+                    echo json_encode($datos);
+                break;
+           
+             
 			}
 		}
 

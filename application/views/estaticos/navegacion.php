@@ -42,12 +42,12 @@
     <nav class="navegacion navi">
         <ul>
             <li id="navegacion_menu" class="hidden-lg hidden-md">Menú</li>
-            <a href="Welcome"><li class="navegacion_activo" id="inicio">Inicio</li></a>
-            <a href="Quienes"><li id="quienessomos">Quiénes somos</li></a>
-            <a href="Noticias"><li id="noticias">Noticias</li></a>
-            <a href="Media"><li id="media">Media</li></a>
-            <a href="Servicios"><li id="servicios">Servicios</li></a>
-            <a href="Designaciones"><li id="designaciones">Designaciones</li></a>
+            <a href="<?php  echo base_url(); ?>"><li class="navegacion_activo" id="inicio">Inicio</li></a>
+            <a href="<?php  echo base_url(); ?>Quienes"><li id="quienessomos">Quiénes somos</li></a>
+            <a href="<?php  echo base_url(); ?>Noticias"><li id="noticias">Noticias</li></a>
+            <a href="<?php  echo base_url(); ?>Media"><li id="media">Media</li></a>
+            <a href="<?php  echo base_url(); ?>Servicios"><li id="servicios">Servicios</li></a>
+            <a href="<?php  echo base_url(); ?>Designaciones"><li id="designaciones">Designaciones</li></a>
         </ul>
     </nav>
     <!--FIN PERMANENTE-->

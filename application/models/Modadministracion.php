@@ -364,10 +364,14 @@
             
             return $datos;
         }
-        
+        function traer_media_album()
+        {
+            $query = $this->db->get('media_album');
+            $datos = $query->result_array();
+            
+            return $datos;
+        }
+   
 
-        
-
-
-    }
+    }   
 ?>

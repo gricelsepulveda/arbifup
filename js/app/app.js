@@ -49,6 +49,10 @@
             templateUrl:'angular_pages/med_portada.html',
             controller:'medPortadaController',
         })
+        .when('/media_album',{
+            templateUrl:'angular_pages/media_album.html',
+            controller:'mediaController',
+        })
         $httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
     }])
     app.controller('tabController', function(){
