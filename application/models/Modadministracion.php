@@ -275,6 +275,67 @@
             
             return $datos;
         }
+        function traer_noticias($datos){
+
+            //$this->db->select('nombre');
+            $q = "select n.*, c.nombre as cat from noticia n join categoria c on n.categoria = c.id where n.titulo = '".$datos[0]."' or n.categoria='".$datos[1]."' ";
+            $query1 = $this->db->query($q);
+            $dat = $query1->result_array();
+
+            return $dat;
+        }
+         function traer_noticias_img($datos){
+
+            $this->db->where('tab', $datos[0]);
+            $this->db->where('codimagen', $datos[1]);
+            $this->db->select('imagen');
+            $query = $this->db->get('not_imagenes');
+            $datos = $query->result_array();
+
+            return $datos;
+        }
+        function eliminar_noticia($datos){
+            $this->db->where('id',$datos[0]);
+            $this->db->delete('noticia');
+
+            $estado = true;
+            if($estado == true)
+            {
+                $this->db->where('codimagen',$datos[1]);
+                $this->db->delete('not_imagenes');
+            }
+            return "ok";
+        }
+        function actualizar_noticia($datos){
+            $cod = $datos[0];
+            if ($datos[4] > 0) {
+                 $data = array(
+               
+               'categoria' => $datos[4],
+               'imagen' => $datos[5],
+               'titulo' => $datos[1],
+               'descripcion' => $datos[2],
+               'link' => $datos[3],
+               
+                 );
+            }else
+            {
+                 $data = array(
+               
+             
+                'categoria' => $datos[4],
+               'imagen' => $datos[5],
+               'titulo' => $datos[1],
+               'descripcion' => $datos[2],
+               'link' => $datos[3],
+               
+            );
+            }
+           
+            $this->db->where('id',$cod);
+            $this->db->update('noticia',$data);
+            return "update";
+        }
         
 
         

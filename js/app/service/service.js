@@ -145,7 +145,7 @@ app.service('noticias', ["$http", "$q", function ($http, $q)
         formData.append("tab", tab);
         formData.append("file", file);
 
-        return $http.post("/arbifup/administracion/crearproducto", formData, {
+        return $http.post("/arbifup/administracion/crearNoticia", formData, {
             headers: {
                 "Content-type": undefined
             },
@@ -189,6 +189,8 @@ app.service('serv_portada', ["$http", "$q", function ($http, $q)
         return deferred.promise;
     }     
 }]);
+
+
 
 
 

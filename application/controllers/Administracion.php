@@ -131,7 +131,7 @@ class Administracion extends CI_Controller {
                 echo json_encode($datos);
             }
         }
-         function crearproducto()
+         function crearNoticia()
         {   
             $this->load->model('Modadministracion');
             $_FILES["file"]["name"] = strtotime("now");
@@ -241,6 +241,22 @@ class Administracion extends CI_Controller {
                 break;
                 case 13:
                     $datos = $this->Modadministracion->traer_servicios_portada();
+                    echo json_encode($datos);
+                break;
+                 case 14:
+                    $datos = $this->Modadministracion->traer_noticias($_POST['datos']);
+                    echo json_encode($datos);
+                break;
+                case 15:
+                    $datos = $this->Modadministracion->traer_noticias_img($_POST['datos']);
+                    echo json_encode($datos);
+                break;
+                case 16:
+                    $datos = $this->Modadministracion->eliminar_noticia($_POST['datos']);
+                    echo json_encode($datos);
+                break;
+                case 17:
+                    $datos = $this->Modadministracion->actualizar_noticia($_POST['datos']);
                     echo json_encode($datos);
                 break;
 			}

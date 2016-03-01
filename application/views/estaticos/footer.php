@@ -6,5 +6,6 @@
 <script type="text/javascript" src="<?php  echo base_url(); ?>js/app/controller/noticiasController.js"></script>
 <script type="text/javascript" src="<?php  echo base_url(); ?>js/app/controller/sliderController.js"></script>
 <script type="text/javascript" src="<?php  echo base_url(); ?>js/app/controller/servPortadaController.js"></script>
+<script type="text/javascript" src="<?php  echo base_url(); ?>js/app/controller/verNoticiasController.js"></script>
 <script type="text/javascript" src="<?php  echo base_url(); ?>js/app/directive/directive.js"></script>
 <script type="text/javascript" src="<?php  echo base_url(); ?>js/app/service/service.js"></script>
