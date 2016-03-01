@@ -45,6 +45,10 @@
             templateUrl:'angular_pages/ver_noticias.html',
             controller:'verNoticiasController',
         })
+        .when('/media_portada',{
+            templateUrl:'angular_pages/med_portada.html',
+            controller:'medPortadaController',
+        })
         $httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
     }])
     app.controller('tabController', function(){
@@ -69,8 +73,3 @@
                 $scope.status = status;
             });
     });
-   
-
-//subir imagenes!!!!
-
-

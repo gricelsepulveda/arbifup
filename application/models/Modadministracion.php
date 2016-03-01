@@ -336,6 +336,34 @@
             $this->db->update('noticia',$data);
             return "update";
         }
+        function modificar_media_portada($titulo,$desc,$file)
+        {
+             $data = array(
+                'titulo' => $titulo,
+                'descripcion' => $desc,
+                'imagen' => $file
+                );
+            
+            $this->db->where('id', 1);
+            $this->db->update('med_portada', $data);
+        }
+       function modificar_media_portada2($titulo,$desc)
+        {
+             $data = array(
+                'titulo' => $titulo,
+                'descripcion' => $desc
+                );
+            
+            $this->db->where('id', 1);
+            $this->db->update('med_portada', $data);
+        }
+        function traer_media_portada()
+        {
+            $query = $this->db->get('med_portada');
+            $datos = $query->result_array();
+            
+            return $datos;
+        }
         
 
         
