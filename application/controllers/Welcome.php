@@ -11,10 +11,9 @@ class Welcome extends CI_Controller {
 		$datos['sesion'] = $this->session->userdata('logged_in');
 
 		if($datos['sesion']['estado']==FALSE){
-
 		$this->load->view('estaticos/navegacion',$datos);
 		$this->load->view('welcome_message');
-		//$this->load->view('estaticos/footer');
+		$this->load->view('estaticos/footer2');
 		}
 		else{
 		redirect(base_url().'administracion');		
