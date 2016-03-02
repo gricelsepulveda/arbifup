@@ -53,6 +53,10 @@
             templateUrl:'angular_pages/media_album.html',
             controller:'mediaController',
         })
+        .when('/designacion',{
+            templateUrl:'angular_pages/designacion.html',
+            controller:'mediaController',
+        })
         $httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
     }])
     app.controller('tabController', function(){
