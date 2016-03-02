@@ -1,0 +1,118 @@
+	<!--INICIO-->
+    <!--Formulario producto-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="jugada">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="text-center">Envía tu pregunta</h3>
+                </div>
+                <div class="modal-body">
+                    <form class="text-center">
+                        <input type="text" name="user" placeholder="Su nombre"><br/>
+                        <input type="email" name="email" placeholder="Su correo"><br/>
+                        <textarea rows="5" name="message" placeholder="Descripción del aviso"></textarea>
+                        <br/>
+                        <button class="ambos_abajo">Enviar</button>
+                    </form>
+                    <p>
+                        <span>Nota:</span>
+                        Las preguntas enviadas no se publican de manera inmediata. Son revisados previamente por la administración.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+	<!--Portada-->
+	<div class="center-block secciones" data-uk-scrollspy="{cls:'uk-animation-scale-up'}">
+		<div id="carousel-banner" class="carousel slide carousel-fade" data-ride="carousel">
+			<!--Imagenes-->
+			<div class="carousel-inner portada portada_servicios" role="listbox">
+				<div class="item active" id="item_1"
+					style="
+					background-image: url(img/relleno_05.jpg);
+					filter: blur(3px);
+					-webkit-filter: blur(3px);
+					-moz-filter: blur(3px);
+					-o-filter: blur(3px);
+					-ms-filter: blur(3px);
+					">
+				</div>
+				<div class="carousel-caption cap">
+					<h3>Análisis de jugadas</h3>
+					<div class="bloque">
+						<p>
+							Analizamos y respondemos preguntas acerca del arbitraje. ¿Tienes una pregunta?
+						</p>
+					</div>
+					<button class="ambos_abajo" data-toggle="modal" data-target="#jugada">Enviar pregunta</button>
+				</div>
+			 </div>
+		</div>
+		<hr>
+		<div class="center-block text-center">
+			<h2>Lista de jugadas</h2>
+		</div>
+	</div>	
+	<!--Modulos-->
+	<div class="wrapper">
+		<!--Listado Noticias-->
+		<!--PAGINACION
+		<ul class="uk-pagination" data-uk-pagination="{items:100, itemsOnPage:10}">
+			<li class="uk-pagination-previous"><a href="">...</a></li>
+			<li class="uk-pagination-next"><a href="">...</a></li>
+		</ul>-->
+		<section class="previa_noticia" data-uk-scrollspy="{cls:'uk-animation-scale-down'}"><!--JUGADA-->
+			<div class="tab">16 de Marzo de 2016</div>
+			<div class="contenedor">
+				<div  class="row no_margen cuerpo">
+					<figure>
+						<img src="img/imagen-noticia.jpg">
+					</figure>
+					<article>
+						<h3>Jugada número 1</h3>
+						<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue elementum lorem, et aliquam est ornare eget. Proin condimentum facilisis purus vitae facilisis. Proin risus nisl, pharetra non hendrerit vel, rutrum sit amet quam...
+						</p>
+						<button class="boton_amarillo der_abajo">Leer más</button>
+					</article>
+				</div>
+			</div>
+		</section>
+		<section class="previa_noticia" data-uk-scrollspy="{cls:'uk-animation-scale-down'}"><!--JUGADA-->
+			<div class="tab">16 de Marzo de 2016</div>
+			<div class="contenedor">
+				<div  class="row no_margen cuerpo">
+					<figure>
+						<img src="img/relleno_01.jpg">
+					</figure>
+					<article>
+						<h3>Jugada número 2</h3>
+						<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue elementum lorem, et aliquam est ornare eget. Proin condimentum facilisis purus vitae facilisis. Proin risus nisl, pharetra non hendrerit vel, rutrum sit amet quam...
+						</p>
+						<button class="boton_amarillo der_abajo">Leer más</button>
+					</article>
+				</div>
+			</div>
+		</section>
+		<section class="previa_noticia" data-uk-scrollspy="{cls:'uk-animation-scale-down'}"><!--JUGADA-->
+			<div class="tab">16 de Marzo de 2016</div>
+			<div class="contenedor">
+				<div  class="row no_margen cuerpo">
+					<figure>
+						<img src="img/relleno_02.jpg">
+					</figure>
+					<article>
+						<h3>Jugada número 3</h3>
+						<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue elementum lorem, et aliquam est ornare eget. Proin condimentum facilisis purus vitae facilisis. Proin risus nisl, pharetra non hendrerit vel, rutrum sit amet quam...
+						</p>
+						<button class="boton_amarillo der_abajo">Leer más</button>
+					</article>
+				</div>
+			</div>
+		</section>
+	</div>
