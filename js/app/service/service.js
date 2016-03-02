@@ -216,6 +216,34 @@ app.service('med_portada', ["$http", "$q", function ($http, $q)
         return deferred.promise;
     }     
 }]);
+app.service('media_Controller', ["$http", "$q", function ($http, $q) 
+{
+    this.uploadFile = function(file, imagen , desc , tab)
+    {
+        var deferred = $q.defer();
+        var formData = new FormData();
+        formData.append("imagen", imagen);
+        formData.append("desc", desc);
+        formData.append("tab", tab);
+        formData.append("file", file);
+
+        return $http.post("/arbifup/administracion/media_imagenes", formData, {
+            headers: {
+                "Content-type": undefined
+            },
+            transformRequest: angular.identity
+        })
+        .success(function(res)
+        {
+            deferred.resolve(res);
+        })
+        .error(function(msg, code)
+        {
+            deferred.reject(msg);
+        })
+        return deferred.promise;
+    }     
+}]);
 
 
 

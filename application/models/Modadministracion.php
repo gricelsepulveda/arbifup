@@ -371,6 +371,50 @@
             
             return $datos;
         }
+        function crear_album($datos)
+        {
+            $imagen = strtotime("now");
+            $fecha = date("d-m-20y");
+            $data = array(
+               'fecha' => $fecha,
+               'titulo' => $datos[0],
+               'imagen' => $imagen,
+               'cantidad' => "2",
+            );
+            $this->db->insert('media_album', $data);
+            $proid = $this->db->insert_id();
+
+            return $proid;
+        }
+        function traer_media_cantidad($datos)
+        {
+      
+            $this->db->where('id', $datos);
+            $query = $this->db->get('media_album');
+            $datos = $query->result_array();
+            
+            return $datos;
+        }
+        function modificar_media_imagen($imagen,$desc,$tab,$file)
+        {
+             $data = array(
+                'codimagen' => $imagen,
+                'imagen' => $file,
+                'descripcion' => $desc,
+                'tab' => $tab
+                );
+             $this->db->insert('media_album_imagenes', $data);
+             echo "$file";
+        }
+       function modificar_media_imagen2($imagen,$desc,$tab)
+        {
+              $data = array(
+                'codimagen' => $imagen,
+                'descripcion' => $desc,
+                'tab' => $tab
+                );
+             $this->db->insert('media_album_imagenes', $data);
+        }
    
 
     }   

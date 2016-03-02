@@ -191,7 +191,14 @@ class Administracion extends CI_Controller {
             echo $file;
             $titulo = $_POST["titulo"];
             $txt1 = $_POST["txt1"];
-         
+            
+             if(!is_dir("files/"))
+            {
+            mkdir("files/", 0777);
+            }
+            else{
+                chmod("files/",0777);
+            }
             if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "files/".$file))
             {
                 $datos = $this->Modadministracion->modificar_media_portada($titulo,$txt1,$file);
@@ -200,6 +207,33 @@ class Administracion extends CI_Controller {
             else
             {
                 $datos = $this->Modadministracion->modificar_media_portada2($titulo,$txt1);
+                echo json_encode($datos);
+            }
+        }
+        function media_imagenes()
+        {   
+            $this->load->model('Modadministracion');
+            $_FILES["file"]["name"] = strtotime("now");
+            $file = $_FILES["file"]["name"];
+            $imagen = $_POST["imagen"];
+            $desc = $_POST["desc"];
+            $tab = $_POST["tab"];
+            
+            if(!is_dir("files/"))
+            {
+            mkdir("files/", 0777);
+            }
+            else{
+                chmod("files/",0777);
+            }
+            if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "files/".$file))
+            {
+                $datos = $this->Modadministracion->modificar_media_imagen($imagen,$desc,$tab,$file);
+                echo json_encode($datos);
+            }
+            else
+            {
+                $datos = $this->Modadministracion->modificar_media_imagen2($imagen,$desc,$tab);
                 echo json_encode($datos);
             }
         }
@@ -285,6 +319,14 @@ class Administracion extends CI_Controller {
                 break;
                  case 19:
                     $datos = $this->Modadministracion->traer_media_album();
+                    echo json_encode($datos);
+                break;
+                case 20:
+                    $datos = $this->Modadministracion->crear_album($_POST['datos']);
+                    echo json_encode($datos);
+                break;
+                case 21:
+                    $datos = $this->Modadministracion->traer_media_cantidad($_POST['datos']);
                     echo json_encode($datos);
                 break;
            
