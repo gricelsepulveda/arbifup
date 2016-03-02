@@ -1,4 +1,29 @@
-
+        <!--Formulario jugada-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="jugada">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="text-center">Envía tu pregunta</h3>
+                </div>
+                <div class="modal-body">
+                    <form class="text-center">
+                        <input type="text" name="user" placeholder="Su nombre"><br/>
+                        <input type="email" name="email" placeholder="Su correo"><br/>
+                        <textarea rows="5" name="message" placeholder="Descripción del aviso"></textarea>
+                        <br/>
+                        <button class="ambos_abajo">Enviar</button>
+                    </form>
+                    <p>
+                        <span>Nota:</span>
+                        Las preguntas enviadas no se publican de manera inmediata. Son revisados previamente por la administración.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--Banner-->
     <div class="center-block" data-uk-scrollspy="{cls:'uk-animation-scale-up'}">
         <div id="carousel-banner" class="carousel slide carousel-fade" data-ride="carousel">
@@ -153,7 +178,7 @@
                     <nav>
                         <hr>
                         <button>Ver todas</button>
-                        <button>Enviar Pregunta</button>
+                        <button data-toggle="modal" data-target="#jugada">Enviar Pregunta</button>
                     </nav>
                 </div>
             </div>
