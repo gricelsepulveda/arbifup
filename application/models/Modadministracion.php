@@ -415,6 +415,56 @@
                 );
              $this->db->insert('media_album_imagenes', $data);
         }
+        function modificar_designaciones_portada($titulo,$desc,$file)
+        {
+             $data = array(
+                'titulo' => $titulo,
+                'descripcion' => $desc,
+                'imagen' => $file
+                );
+            
+            $this->db->where('id', 1);
+            $this->db->update('desig_portada', $data);
+        }
+       function modificar_designaciones_portada2($titulo,$desc)
+        {
+             $data = array(
+                'titulo' => $titulo,
+                'descripcion' => $desc
+                );
+            
+            $this->db->where('id', 1);
+            $this->db->update('desig_portada', $data);
+        }
+        function traer_designacion_portada()
+        {
+            $query = $this->db->get('desig_portada');
+            $datos = $query->result_array();
+            
+            return $datos;
+        }
+        function modificar_designaciones($titulo,$desc,$file)
+        {
+            $fecha = date("d-m-20y");
+             $data = array(
+                'fecha' => $fecha,
+                'titulo' => $titulo,
+                'descripcion' => $desc,
+                'archivo' => $file
+                );
+            $this->db->insert('desginaciones', $data);
+        }
+       function modificar_designaciones2($titulo,$desc)
+        {
+             $fecha = date("d-m-20y");
+             $data = array(
+                'fecha' => $fecha,
+                'titulo' => $titulo,
+                'descripcion' => $desc,
+
+                );
+            $this->db->insert('desginaciones', $data);
+        }
    
 
     }   

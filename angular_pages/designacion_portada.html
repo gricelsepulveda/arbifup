@@ -1,0 +1,84 @@
+    
+    <div class="uk-container-center cnt" ng-init="tab = 1"><!--CONTENEDOR GRAL-->
+                    <!--INICIO VISTA1-->
+                     <nav class="mn_vista">
+                    
+                        <ul>
+                         <li class="btn_mn_vista" ng-class="{ 'act_1' : tab === 1 }"ng-click="selectTab(1)"><a ng-href="#/designacion_portada">Portada</li>
+                        <li class="btn_mn_vista" ng-class="{ 'act_1' : tab === 2 }"ng-click="selectTab(2)"><a ng-href="#/designaciones">Designaciones</a></li>
+                   
+                        </ul>
+                        <hr>
+                    </nav>
+                    <!--INICIO SUBSECCION A1-->
+                    <div class="subseccion" id="subseccion_a1">
+                        <div class="uk-grid bug">
+                          
+                            <!--INICIO COLUMNA IZQUIERDA-->
+                            
+                            <div class="uk-width-1-1 uk-width-small-1-1 uk-width-medium-1-2 uk-width-large-1-2 uk-grid-width-xlarge-1-2 izq">
+                            <br><br>
+                               <form class="uk-form uk-form-stacked frm" name="upload">
+                               
+                                    <div class="uk-form-row">
+                                        <label class="uk-form-label" for="form-h-it"><h2>Título</h2></label>
+                                        <div class="uk-form-controls">
+                                            <input   type="text" id="form-h-it" ng-model="titulo" placeholder="{{ nosotros[0].titulo }}">
+                                        </div>
+                                    </div>
+                                    <div class="uk-form-row">
+                                        <label class="uk-form-label" for="form-h-t"><h2>Descripcion</h2></label>
+                                        <div class="uk-form-controls">
+                                            <textarea id="form-h-t" rows="5" ng-model="txt1" placeholder="{{ nosotros[0].descripcion }}"></textarea>
+                                        </div>
+                                    </div>
+                                   
+                                    <br/>
+                                    <div class="fileinput-new btn_ctrl_subseccion_2"><!--GUARDAR CAMBIOS-->
+                                            <div class="btn_icn_subseccion_2"><i class="uk-icon-save icn_subs"></i></div>
+                                            <div class="txt_btn_icn_subseccion_2" ng-click="uploadFile()">guardar cambios</div>
+                                    </div>
+                               </form>
+                            </div>
+                            <!--FIN COLUMNA IZQUIERDA-->
+                            <!--INICIO COLUMNA DERECHA-->
+                            <div class="uk-width-1-1 uk-width-small-1-1 uk-width-medium-1-2 uk-width-large-1-2 uk-grid-width-xlarge-1-2 der">
+                            <br><br>
+                            <form class="uk-form uk-form-stacked frm" name="upload">
+                                <!--INICIO JANY BOOTSTRAP-->
+                                <div class="fileinput fileinput-new cnt_carga_imagen" data-provides="fileinput">
+                                    <div class="btn-file">
+                                        <div class="fileinput-new btn_ctrl_subseccion"><!--BTN SELECCIONAR IMG-->
+                                            <div class="btn_icn_subseccion"><i class="uk-icon-picture-o icn_subs"></i></div>
+                                            <div class="txt_btn_icn_subseccion">seleccionar imagen</div>
+                                        </div>
+                                        <div class="fileinput-exists btn_ctrl_subseccion"><!--BTN CAMBIAR IMG-->
+                                            <div class="btn_icn_subseccion"><i class="uk-icon-exchange icn_subs"></i></div>
+                                            <div class="txt_btn_icn_subseccion">cambiar imagen</div>
+                                        </div>
+                                        <input type="file" name="slider1" uploader-model="file"></input><!--BTN FILE-->
+                                    </div>
+                                    <h2>Vista previa:</h2>
+                                    <p class="tip">
+                                        (Se recomienda una imagen de un mínimo de 1200px de ancho por 600 de alto o proporción similar)
+                                    </p>
+                                    <div class="fileinput-preview thumbnail prev_img" data-trigger="fileinput"><img src="files/{{ nosotros[0].imagen }}" alt=""></div>
+                                    <div class="fileinput-exists btn_ctrl_subseccion" data-dismiss="fileinput"><!--BTN BORRAR IMG-->
+                                        <div class="btn_icn_subseccion"><i class="uk-icon-remove icn_subs"></i></div>
+                                        <div class="txt_btn_icn_subseccion">remover imagen</div>
+                                    </div>
+                                </div>
+                                <!--FIN JANNY BOOTSTRAP-->
+                                <hr class="uk-visible-small">
+                                </form>
+                            </div>
+                            
+                            
+                            <!--FIN COLUMNA DERECHA-->
+                        </div>
+                    </div>
+                    <!--FIN SUBSECCION A1-->
+                    <!--FIN VISTA1-->
+                </div>
+          
+

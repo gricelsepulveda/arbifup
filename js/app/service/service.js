@@ -244,6 +244,60 @@ app.service('media_Controller', ["$http", "$q", function ($http, $q)
         return deferred.promise;
     }     
 }]);
+app.service('desig_portada', ["$http", "$q", function ($http, $q) 
+{
+    this.uploadFile = function(file, titulo , txt1)
+    {
+        var deferred = $q.defer();
+        var formData = new FormData();
+        formData.append("titulo", titulo);
+        formData.append("txt1", txt1);
+        formData.append("file", file);
+
+        return $http.post("/arbifup/administracion/designaciones_portada", formData, {
+            headers: {
+                "Content-type": undefined
+            },
+            transformRequest: angular.identity
+        })
+        .success(function(res)
+        {
+            deferred.resolve(res);
+        })
+        .error(function(msg, code)
+        {
+            deferred.reject(msg);
+        })
+        return deferred.promise;
+    }     
+}]);
+app.service('designaciones', ["$http", "$q", function ($http, $q) 
+{
+    this.uploadFile = function(file, titulo , txt1)
+    {
+        var deferred = $q.defer();
+        var formData = new FormData();
+        formData.append("titulo", titulo);
+        formData.append("txt1", txt1);
+        formData.append("file", file);
+
+        return $http.post("/arbifup/administracion/designaciones", formData, {
+            headers: {
+                "Content-type": undefined
+            },
+            transformRequest: angular.identity
+        })
+        .success(function(res)
+        {
+            deferred.resolve(res);
+        })
+        .error(function(msg, code)
+        {
+            deferred.reject(msg);
+        })
+        return deferred.promise;
+    }     
+}]);
 
 
 
