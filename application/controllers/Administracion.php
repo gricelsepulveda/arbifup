@@ -7,10 +7,18 @@ class Administracion extends CI_Controller {
 	
 	public function index()
 	{
+       $datos['sesion'] = $this->session->userdata('logged_in');
 
-	   $this->load->view('estaticos/header');
-	   $this->load->view('estaticos/menu');
-	   $this->load->view('estaticos/footer');
+        if($datos['sesion']['estado']==FALSE){
+     
+        redirect(base_url().'');
+        }
+        else{
+         $this->load->view('estaticos/header');
+       $this->load->view('estaticos/menu');
+       $this->load->view('estaticos/footer');     
+        }
+
 	}
         function nosotros_portada()
         {	
@@ -380,6 +388,18 @@ class Administracion extends CI_Controller {
                 break;
                 case 22:
                     $datos = $this->Modadministracion->traer_designacion_portada();
+                    echo json_encode($datos);
+                break;
+                case 23:
+                    $datos = $this->Modadministracion->traer_servicios();
+                    echo json_encode($datos);
+                break;
+                case 24:
+                    $datos = $this->Modadministracion->eliminar_servicio($_POST['datos']);
+                    echo json_encode($datos);
+                break;
+                case 25:
+                    $datos = $this->Modadministracion->actualizar_servicio($_POST['datos']);
                     echo json_encode($datos);
                 break;
            

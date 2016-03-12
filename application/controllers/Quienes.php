@@ -23,5 +23,32 @@ class Quienes extends CI_Controller {
 				
 			}
 	}
+
+	function ajax()
+	{
+		$this->load->model('Modpagina');
+		$caso = $_POST['case'];
+			
+			switch($caso)
+			{
+				case 1:
+					$datos = $this->Modpagina->traer_portada_quienes();
+					echo json_encode($datos);
+				break;
+				case 2:
+					$datos = $this->Modpagina->traer_nosotros();
+					echo json_encode($datos);
+				break;
+				case 3:
+					$datos = $this->Modpagina->traer_directiva();
+					echo json_encode($datos);
+				break;
+				case 4:
+					$datos = $this->Modpagina->traer_miembros();
+					echo json_encode($datos);
+				break;
 	
+			}
 	}
+	
+}

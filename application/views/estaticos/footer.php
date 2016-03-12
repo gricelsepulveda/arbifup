@@ -11,6 +11,7 @@
 <script type="text/javascript" src="<?php  echo base_url(); ?>js/app/controller/mediaController.js"></script>
 <script type="text/javascript" src="<?php  echo base_url(); ?>js/app/controller/desigPortadaController.js"></script>
 <script type="text/javascript" src="<?php  echo base_url(); ?>js/app/controller/designacionesController.js"></script>
+<script type="text/javascript" src="<?php  echo base_url(); ?>js/app/controller/servicios_controller.js"></script>
 
 <script type="text/javascript" src="<?php  echo base_url(); ?>js/app/directive/directive.js"></script>
 <script type="text/javascript" src="<?php  echo base_url(); ?>js/app/service/service.js"></script>

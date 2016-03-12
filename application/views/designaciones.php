@@ -1,12 +1,13 @@
 	<!--DESIGNACIONES-->
 	<!--Portada-->
+	<div ng-controller="pagDesignacionesController">
 	<div class="center-block secciones" data-uk-scrollspy="{cls:'uk-animation-scale-up'}">
 		<div id="carousel-banner" class="carousel slide carousel-fade" data-ride="carousel">
 			<!--Imagenes-->
 			<div class="carousel-inner portada" role="listbox">
 				<div class="item active" id="item_1"
 					style="
-					background-image: url(img/relleno_08.png);
+					background-image: url(files/{{portada[0].imagen}});
 					filter: blur(3px);
 					-webkit-filter: blur(3px);
 					-moz-filter: blur(3px);
@@ -15,10 +16,10 @@
 					">
 				</div>
 				<div class="carousel-caption cap">
-					<h3>Lorem ipsum dolorem asimet</h3>
+					<h3>{{portada[0].titulo}}</h3>
 					<div class="bloque">
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue elementum lorem, et aliquam est ornare eget. Proin condimentum facilisis purus vitae facilisis...
+							{{portada[0].descripcion}}
 						</p>
 					</div>
 				</div>
@@ -37,12 +38,12 @@
 			<div class="contenedor">
 				<div  class="row no_margen cuerpo">
 					<article>
-						<h3>Designación Marzo 2016</h3>
+						<h3>Designación {{designaciones[0].fecha}}</h3>
 						<p>
 							A continuación podrás descargar la designación vigente en formato pdf:
 						</p>
 						<i class="fa fa-file-pdf-o"></i>
-						<button class="boton_amarillo der_abajo">Descargar</button>
+						<a class="boton_amarillo der_abajo" href="storage/{{designaciones[0].archivo}}" target="_blank" download="Designacion {{designaciones[0].fecha}}">Descargar</a>
 					</article>
 				</div>
 			</div>
@@ -54,23 +55,13 @@
 				<div  class="row no_margen cuerpo">
 					<article>
 						<h3>Designaciones anteriores</h3>
-						<ul>
-							<li>00/00/0000<a href="#gol">Descargar</a></li>
-							<li>00/00/0000<a href="#gol">Descargar</a></li>
-							<li>00/00/0000<a href="#gol">Descargar</a></li>
-							<li>00/00/0000<a href="#gol">Descargar</a></li>
-							<li>00/00/0000<a href="#gol">Descargar</a></li>
-							<li>00/00/0000<a href="#gol">Descargar</a></li>
-							<li>00/00/0000<a href="#gol">Descargar</a></li>
-							<li>00/00/0000<a href="#gol">Descargar</a></li>
-							<li>00/00/0000<a href="#gol">Descargar</a></li>
-							<li>00/00/0000<a href="#gol">Descargar</a></li>
-							<li>00/00/0000<a href="#gol">Descargar</a></li>
-							<li>00/00/0000<a href="#gol">Descargar</a></li>
-							<li>00/00/0000<a href="#gol">Descargar</a></li>
+						<ul >
+							<li ng-repeat="datos in designaciones">{{datos.fecha}}<a href="storage/{{datos.archivo}}" target="_blank" download="Designacion {{datos.fecha}}">Descargar</a></li>
+					
 						</ul>
 					</article>
 				</div>
 			</div>
 		</section>
+	</div>
 	</div>

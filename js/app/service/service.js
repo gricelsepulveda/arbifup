@@ -298,6 +298,38 @@ app.service('designaciones', ["$http", "$q", function ($http, $q)
         return deferred.promise;
     }     
 }]);
+app.service('servicio', ["$http", "$q", function ($http, $q) 
+{
+    this.uploadFile = function(user,producto,descripcion,fono,correo,web,file)
+    {
+        var deferred = $q.defer();
+        var formData = new FormData();
+        formData.append("user", user);
+        formData.append("producto", producto);
+        formData.append("descripcion", descripcion);
+        formData.append("fono", fono);
+        formData.append("correo", correo);
+        formData.append("web", web);
+        formData.append("file", file);
+
+
+        return $http.post("/arbifup/Servicios/productos", formData, {
+            headers: {
+                "Content-type": undefined
+            },
+            transformRequest: angular.identity
+        })
+        .success(function(res)
+        {
+            deferred.resolve(res);
+        })
+        .error(function(msg, code)
+        {
+            deferred.reject(msg);
+        })
+        return deferred.promise;
+    }     
+}]);
 
 
 

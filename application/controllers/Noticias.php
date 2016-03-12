@@ -23,5 +23,26 @@ class Noticias extends CI_Controller {
 				
 			}
 	}
+		function ajax()
+	{
+		$this->load->model('Modpagina');
+		$caso = $_POST['case'];
+			
+			switch($caso)
+			{
+				case 1:
+					$datos = $this->Modpagina->traer_todo_noticias();
+					echo json_encode($datos);
+				break;
+				case 2:
+					$datos = $this->Modpagina->traer_noticias_portada();
+					echo json_encode($datos);
+				break;
+		
+	
+			}
+	}
+
+
 	
 	}

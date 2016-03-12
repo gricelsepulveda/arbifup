@@ -23,5 +23,26 @@ class Designaciones extends CI_Controller {
 				
 			}
 	}
+		function ajax()
+	{
+		$this->load->model('Modpagina');
+		$caso = $_POST['case'];
+			
+			switch($caso)
+			{
+				case 1:
+					$datos = $this->Modpagina->traer_designaciones();
+					echo json_encode($datos);
+				break;
+				case 2:
+					$datos = $this->Modpagina->traer_desig_portada();
+					echo json_encode($datos);
+				break;
+
+		
+	
+			}
+	}
+
 	
 	}

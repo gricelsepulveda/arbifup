@@ -1,3 +1,4 @@
+	<div ng-controller="pagQuienesController">
 	<!--QUIENES SOMOS-->
 	<!--Modal descripción árbitro-->
 	<div class="modal fade" tabindex="-1" role="dialog" id="arbitro">
@@ -21,13 +22,13 @@
 		</div>
 	</div>
 	<!--Portada-->
-	<div class="center-block secciones" data-uk-scrollspy="{cls:'uk-animation-scale-up'}">
+	<div class="center-block secciones" data-uk-scrollspy="{cls:'uk-animation-scale-up'}" >
 		<div id="carousel-banner" class="carousel slide carousel-fade" data-ride="carousel">
 			<!--Imagenes-->
 			<div class="carousel-inner portada" role="listbox">
 				<div class="item active" id="item_1"
 					style="
-					background-image: url(img/relleno_03.jpg);
+					background-image: url(files/{{quienes[0].imagen}});
 					filter: blur(3px);
 					-webkit-filter: blur(3px);
 					-moz-filter: blur(3px);
@@ -36,10 +37,10 @@
 					">
 				</div>
 				<div class="carousel-caption cap">
-					<h3>Lorem ipsum dolorem asimet</h3>
+					<h3>{{quienes[0].titulo}}</h3>
 					<div class="bloque">
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue elementum lorem, et aliquam est ornare eget. Proin condimentum facilisis purus vitae facilisis...
+							{{quienes[0].descripcion}}
 						</p>
 					</div>
 				</div>
@@ -51,22 +52,20 @@
 		</div>
 	</div>
 	<!--Modulos-->
-	<div class="wrapper">
+	<div class="wrapper" ng-controller="pagQuienesController">
 		<!--Nosotros-->
 		<section class="nosotros" data-uk-scrollspy="{cls:'uk-animation-scale-down'}">
 			<div class="tab">Nosotros</div>
 			<div class="contenedor">
 				<div  class="row no_margen cuerpo">
 					<article>
-						<h3>Somos Arbifup</h3>
+						<h3>{{somos[0].titulo}}</h3>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor elit esse cillum dolore eu fugiat nulla pariatur.
+							{{somos[0].descripcion}}
 						</p>
 					</article>
 					<figure>
-						<img src="img/imagen-noticia.jpg">
+						<img src="files/{{somos[0].imagen}}">
 					</figure>
 				</div>
 			</div>
@@ -77,32 +76,19 @@
 			<div class="contenedor">
 				<div  class="row no_margen cuerpo">
 					<article>
-						<h3>Conoce nuestra directiva 2016</h3>
+						<h3>{{directiva[0].titulo}}</h3>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+							{{directiva[0].descripcion}} 
 						</p>
 					</article>
-					<figure><!--IMAGEN 1-->
+					<figure ng-repeat="datos in miembros"><!--IMAGEN 1-->
 						<div>
-							<img src="img/relleno_01.jpg">
+							<img src="files/{{datos.imagen}}">
 						</div>
-						<span data-toggle="modal" data-target="#arbitro">Nombre Apellido</span>
-						<span>Cargo que ocupa</span>
+						<span data-toggle="modal" data-target="#arbitro">{{datos.nombre}}</span>
+						<span>{{datos.cargo}}</span>
 					</figure>
-					<figure><!--IMAGEN 2-->
-						<div>
-							<img src="img/relleno_11.jpg">
-						</div>
-						<span data-toggle="modal" data-target="#arbitro">Nombre Apellido</span>
-						<span>Cargo que ocupa</span>
-					</figure>
-					<figure><!--IMAGEN 3-->
-						<div>
-							<img src="img/relleno_10.jpg">
-						</div>
-						<span data-toggle="modal" data-target="#arbitro">Nombre Apellido</span>
-						<span>Cargo que ocupa</span>
-					</figure>
+					
 				</div>
 			</div>
 		</section>
@@ -118,4 +104,5 @@
 				</div>
 			</div>
 		</section>
+	</div>
 	</div>

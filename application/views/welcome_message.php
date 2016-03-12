@@ -36,50 +36,50 @@
             </ol>
             <hr>
             <!--Imagenes-->
-            <div class="carousel-inner" role="listbox">
-                <div class="item active" id="item_1" style="background-image: url(img/banner01.jpg);">
+            <div class="carousel-inner" role="listbox" ng-controller="pagSliderController">
+                <div class="item active" id="item_1" style="background-image: url(files/{{slider[0].imagen}});">
                     <a href="#gol">
                         <div class="carousel-caption cap">
-                            <h3>Lorem ipsum dolorem asimet</h3>
+                            <h3>{{slider[0].titulo}}</h3>
                             <div class="bloque">
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue elementum lorem, et aliquam est ornare eget. Proin condimentum facilisis purus vitae facilisis...
+                                    {{slider[0].descripcion}}
                                 </p>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="item" id="item_2" style="background-image: url(img/banner02.jpg);">
+                <div class="item" id="item_2" style="background-image: url(files/{{slider[1].imagen}});">
                     <a href="#gol">
                         <div class="carousel-caption cap">
-                            <h3>Lorem ipsum dolorem asimet</h3>
+                            <h3>{{slider[1].titulo }}</h3>
                             <div class="bloque">
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue elementum lorem, et aliquam est ornare eget. Proin condimentum facilisis purus vitae facilisis...
+                                    {{slider[1].descripcion}}
                                 </p>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="item" id="item_3" style="background-image: url(img/banner03.jpg);">
+                <div class="item" id="item_3" style="background-image: url(files/{{slider[2].imagen}});">
                     <a href="#gol">
                         <div class="carousel-caption cap">
-                            <h3>Lorem ipsum dolorem asimet</h3>
+                            <h3>{{slider[2].titulo}}</h3>
                             <div class="bloque">
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue elementum lorem, et aliquam est ornare eget. Proin condimentum facilisis purus vitae facilisis...
+                                    {{slider[2].descripcion}}
                                 </p>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="item" id="item_4" style="background-image: url(img/banner04.jpg);">
+                <div class="item" id="item_4" style="background-image: url(files/{{slider[3].imagen}});">
                     <a href="#gol">
                         <div class="carousel-caption cap">
-                            <h3>Lorem ipsum dolorem asimet</h3>
+                            <h3>{{slider[3].titulo}}</h3>
                             <div class="bloque">
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue elementum lorem, et aliquam est ornare eget. Proin condimentum facilisis purus vitae facilisis...
+                                   {{slider[3].descripcion | limitTo: 120 }}{{"  "+"..."}}
                                 </p>
                             </div>
                         </div>
@@ -102,46 +102,47 @@
     <!--Modulos-->
     <div class="wrapper">
         <!--Noticias recientes-->
-        <section class="noticia" data-uk-scrollspy="{cls:'uk-animation-scale-down'}">
+        <section class="noticia" data-uk-scrollspy="{cls:'uk-animation-scale-down'}" ng-controller="pagNoticiasController">
             <div class="tab">Noticias recientes</div>
             <ul>
-                <li id="noticia_activo"><div class="caret caret_on"></div>Arbifup</li>
-                <li><div class="caret"></div>Futbol</li>
+                <li ng-click="arbifup()" id="noticia_activo"><div class="caret caret_on"></div>Arbifup</li>
+                <li ng-click="futbol()"><div class="caret"></div>Futbol</li>
                 <li><div class="caret"></div>Desarrollo</li>
                 <li><div class="caret"></div>Editorial</li>
             </ul>
             <div class="contenedor">
                 <div  class="row no_margen cuerpo">
                     <figure>
-                        <img src="img/imagen-noticia.jpg">
+                        <img src="files/{{noticias[0].img}}">
                     </figure>
                     <article>
-                        <h6>Jueves 26 de Febrero</h6>
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue elementum lorem, et aliquam est ornare eget.</h3>
+                        <h6>{{noticias[0].fecha }}</h6>
+                        <h3>{{noticias[0].titulo}}</h3>
                         <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue elementum lorem, et aliquam est ornare eget. Proin condimentum facilisis purus vitae facilisis. Proin risus nisl, pharetra non hendrerit vel, rutrum sit amet quam...
+                        {{noticias[0].descripcion | limitTo: 250}}{{"  "+"..."}}
                         </p>
                         <button class="boton_amarillo der_abajo">Leer más</button>
                         <hr>
                         <h6>Más antiguas</h6>
-                        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue elementum lorem, et aliquam est ornare eget...<a href=""><i class="fa fa-angle-right"><span>ver</span></i></a></h5>
-                        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue elementum lorem, et aliquam est ornare eget...<a href=""><i class="fa fa-angle-right"><span>ver</span></i></a></h5>
+                        <h5>{{noticias[1].descripcion | limitTo: 120 }}{{"  "+"..."}}<a href=""><i class="fa fa-angle-right"><span>ver</span></i></a></h5>
+                        <br>
+                        <h5>{{noticias[2].descripcion | limitTo: 120 }}{{"  "+"..."}}<a href=""><i class="fa fa-angle-right"><span>ver</span></i></a></h5>
                     </article>
                 </div>
             </div>
         </section>
         <!--Asignaciones-->
-        <section class="designaciones" data-uk-scrollspy="{cls:'uk-animation-scale-down'}">
+        <section class="designaciones" data-uk-scrollspy="{cls:'uk-animation-scale-down'}" ng-controller="pagDesignacionesController">
             <div class="tab">Designación vigente</div>
             <div class="contenedor">
                 <div  class="row no_margen cuerpo">
                     <article>
-                        <h3>Designación Marzo 2016</h3>
+                        <h3>Designación {{designaciones[0].fecha}}</h3>
                         <p>
                             A continuación podrás descargar la designación vigente en formato pdf:
                         </p>
                         <i class="fa fa-file-pdf-o"></i>
-                        <button class="boton_amarillo der_abajo">Descargar</button>
+                        <a class="boton_amarillo der_abajo" href="storage/{{designaciones[0].archivo}}" target="_blank" download="Designacion {{designaciones[0].fecha}}">Descargar</a>
                     </article>
                 </div>
             </div>

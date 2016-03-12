@@ -446,8 +446,10 @@
         function modificar_designaciones($titulo,$desc,$file)
         {
             $fecha = date("d-m-20y");
+             $hora = date("H:i:s");
              $data = array(
                 'fecha' => $fecha,
+                'hora' => $hora,
                 'titulo' => $titulo,
                 'descripcion' => $desc,
                 'archivo' => $file
@@ -457,14 +459,42 @@
        function modificar_designaciones2($titulo,$desc)
         {
              $fecha = date("d-m-20y");
+             $hora = date("H:i:s");
              $data = array(
                 'fecha' => $fecha,
+                'hora' => $hora,
                 'titulo' => $titulo,
                 'descripcion' => $desc,
 
                 );
             $this->db->insert('desginaciones', $data);
         }
+        function traer_servicios()
+        {
+            $query = $this->db->get('servicios');
+            $datos = $query->result_array();
+            
+            return $datos;
+        }
+         function eliminar_servicio($datos){
+            $this->db->where('id',$datos[0]);
+            $this->db->delete('servicios');
+
+            return "ok";
+        }
+        function actualizar_servicio($datos){
+
+             $data = array(
+                'estado' => $datos[1],
+
+                );
+            
+            $this->db->where('id', $datos[0]);
+            $this->db->update('servicios', $data);
+
+            return "ok";
+        }
+       
    
 
     }   

@@ -19,5 +19,13 @@
             </article>
         </div>
     </footer>
+    <script type="text/javascript" src="<?php  echo base_url(); ?>js/bootbox.min.js"></script>
+    <script type="text/javascript" src="<?php  echo base_url(); ?>js/app/controller/pag_slider_controller.js"></script>
+    <script type="text/javascript" src="<?php  echo base_url(); ?>js/app/controller/pag_noticias_controller.js"></script>
+    <script type="text/javascript" src="<?php  echo base_url(); ?>js/app/controller/pag_quienes_controller.js"></script>
+    <script type="text/javascript" src="<?php  echo base_url(); ?>js/app/controller/pag_designaciones_controller.js"></script>
+    <script type="text/javascript" src="<?php  echo base_url(); ?>js/app/controller/pag_servicios_controller.js"></script>
+    <script type="text/javascript" src="<?php  echo base_url(); ?>js/app/service/service.js"></script>
+    <script type="text/javascript" src="<?php  echo base_url(); ?>js/app/directive/directive.js"></script>
     </body>
 </html>

@@ -1,5 +1,6 @@
 	<!--SERVICIOS-->
     <!--Formulario producto-->
+    <div ng-controller="pagServiciosController">
     <div class="modal fade" tabindex="-1" role="dialog" id="producto">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -10,17 +11,16 @@
                     <h3 class="text-center">Publica tu producto</h3>
                 </div>
                 <div class="modal-body">
-                    <form class="text-center">
-                        <input type="text" name="user" placeholder="Su nombre"><br/>
-                        <input type="email" name="email" placeholder="Su correo"><br/>
-                        <input type="text" name="user" placeholder="Nombre del producto"><br/>
-                        <textarea rows="5" name="message" placeholder="Descripción del aviso"></textarea>
-                        <input type="text" name="user" placeholder="Fono de contacto"><br/>
-                        <input type="text" name="user" placeholder="Correo de ventas"><br/>
-                        <input type="text" name="user" placeholder="Sitio web"><br/>
-                        <input type="file" class="archivo"> 
+                    <form class="text-center" name="upload">
+                        <input type="text" name="user" ng-model='user' placeholder="Su nombre"><br/>
+                        <input type="text" name="producto" ng-model='producto' placeholder="Nombre del producto"><br/>
+                        <textarea rows="5" name="descripcion" ng-model='descripcion' placeholder="Descripción del aviso"></textarea>
+                        <input type="text" name="fono" ng-model='fono' placeholder="Fono de contacto"><br/>
+                        <input type="text" name="correo" ng-model='correo' placeholder="Correo de ventas"><br/>
+                        <input type="text" name="web" ng-model='web' placeholder="Sitio web"><br/>
+                        <input type="file" uploader-model="file" class="archivo"> 
                         <br/>
-                        <button class="ambos_abajo">Enviar</button>
+                        <button class="ambos_abajo" ng-click="uploadFile()">Enviar</button>
                     </form>
                     <p>
                         <span>Nota:</span>
@@ -37,7 +37,7 @@
 			<div class="carousel-inner portada portada_servicios" role="listbox">
 				<div class="item active" id="item_1"
 					style="
-					background-image: url(img/relleno_19.jpg);
+					background-image: url(files/{{portada[0].imagen}});
 					filter: blur(3px);
 					-webkit-filter: blur(3px);
 					-moz-filter: blur(3px);
@@ -46,10 +46,10 @@
 					">
 				</div>
 				<div class="carousel-caption cap">
-					<h3>Servicios Arbifup</h3>
+					<h3>{{portada[0].titulo}}</h3>
 					<div class="bloque">
 						<p>
-							Publica tu aviso en nuestra sección de servicios y si cumple con las condiciones mínimas de publicación podrás ver tu anuncio en este lugar.
+							{{portada[0].descripcion}}
 						</p>
 					</div>
 					<button class="ambos_abajo" data-toggle="modal" data-target="#producto">Publicar aviso</button>
@@ -66,294 +66,44 @@
 		<div class="masonry_contenedor">
 			<!--Lista de avisos de servicios-->
 			<div class="row">
-				<section class="servicios" data-uk-scrollspy="{cls:'uk-animation-fade'}">
-					<div class="tab">16 de Marzo de 2016</div>
-      				<div class="contenedor"> 
-        				<div class="row no_margen cuerpo">
-							<article>
-        						<h3>Nombre del servicio</h3>
-        						<p>
-        							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
-        						</p>
-        					</article>
-        					<figure>
-        						<img src="img/imagen-noticia.jpg">
-        					</figure>
-        					<nav>
-								<hr>
-        						<ul>
-        							<li>
-        								<i class="fa fa-mobile"></i>
-        								<span>Fono:</span> 
-        								<a href="href="tel:+31555461656"">(02) 860 09 09</a>
-        							</li>
-        							<li>
-        								<i class="fa fa-envelope-o"></i>
-        								<span>Correo:</span>
-        								<a href="#gol">gricel@gricelsepulveda.cl</a>
-        							</li>
-        							<li>
-        								<i class="fa fa-link"></i>
-        								<span>Web:</span>
-        								<a href="http://www.gricelsepulveda.cl">http://www.gricelsepulveda.cl</a>
-        							</li>
-        						</ul>
-        					</nav>
-        				</div>
-      				</div>
-    			</section>
-    			<section class="servicios" data-uk-scrollspy="{cls:'uk-animation-fade'}">
-    				<div class="tab">16 de Marzo de 2016</div>
-      				<div class="contenedor"> 
-        				<div class="row no_margen cuerpo">
-							<article>
-        						<h3>Nombre del servicio</h3>
-        						<p>
-        							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
-        						</p>
-        					</article>
-        					<figure>
-        						<img src="img/relleno_01.jpg">
-        					</figure>
-        					<nav>
-								<hr>
-        						<ul>
-        							<li>
-        								<i class="fa fa-mobile"></i>
-        								<span>Fono:</span> 
-        								<a href="href="tel:+31555461656"">(02) 860 09 09</a>
-        							</li>
-        							<li>
-        								<i class="fa fa-envelope-o"></i>
-        								<span>Correo:</span>
-        								<a href="#gol">gricel@gricelsepulveda.cl</a>
-        							</li>
-        							<li>
-        								<i class="fa fa-link"></i>
-        								<span>Web:</span>
-        								<a href="http://www.gricelsepulveda.cl">http://www.gricelsepulveda.cl</a>
-        							</li>
-        						</ul>
-        					</nav>
-        				</div>
-      				</div>
-    			</section>
-    			<section class="servicios" data-uk-scrollspy="{cls:'uk-animation-fade'}">
-    				<div class="tab">16 de Marzo de 2016</div>
-      				<div class="contenedor"> 
-        				<div class="row no_margen cuerpo">
-							<article>
-        						<h3>Nombre del servicio</h3>
-        						<p>
-        							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
-        						</p>
-        					</article>
-        					<figure>
-        						<img src="img/relleno_02.jpg">
-        					</figure>
-        					<nav>
-								<hr>
-        						<ul>
-        							<li>
-        								<i class="fa fa-mobile"></i>
-        								<span>Fono:</span> 
-        								<a href="href="tel:+31555461656"">(02) 860 09 09</a>
-        							</li>
-        							<li>
-        								<i class="fa fa-envelope-o"></i>
-        								<span>Correo:</span>
-        								<a href="#gol">gricel@gricelsepulveda.cl</a>
-        							</li>
-        							<li>
-        								<i class="fa fa-link"></i>
-        								<span>Web:</span>
-        								<a href="http://www.gricelsepulveda.cl">http://www.gricelsepulveda.cl</a>
-        							</li>
-        						</ul>
-        					</nav>
-        				</div>
-      				</div>
-    			</section>
-    			<section class="servicios" data-uk-scrollspy="{cls:'uk-animation-fade'}">
-    				<div class="tab">16 de Marzo de 2016</div>
-      				<div class="contenedor"> 
-        				<div class="row no_margen cuerpo">
-							<article>
-        						<h3>Nombre del servicio</h3>
-        						<p>
-        							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
-        						</p>
-        					</article>
-        					<figure>
-        						<img src="img/relleno_03.jpg">
-        					</figure>
-        					<nav>
-								<hr>
-        						<ul>
-        							<li>
-        								<i class="fa fa-mobile"></i>
-        								<span>Fono:</span> 
-        								<a href="href="tel:+31555461656"">(02) 860 09 09</a>
-        							</li>
-        							<li>
-        								<i class="fa fa-envelope-o"></i>
-        								<span>Correo:</span>
-        								<a href="#gol">gricel@gricelsepulveda.cl</a>
-        							</li>
-        							<li>
-        								<i class="fa fa-link"></i>
-        								<span>Web:</span>
-        								<a href="http://www.gricelsepulveda.cl">http://www.gricelsepulveda.cl</a>
-        							</li>
-        						</ul>
-        					</nav>
-        				</div>
-      				</div>
-    			</section>
-    			<section class="servicios" data-uk-scrollspy="{cls:'uk-animation-fade'}">
-    				<div class="tab">16 de Marzo de 2016</div>
-      				<div class="contenedor"> 
-        				<div class="row no_margen cuerpo">
-							<article>
-        						<h3>Nombre del servicio</h3>
-        						<p>
-        							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-        						</p>
-        					</article>
-        					<figure>
-        						<img src="img/relleno_04.jpg">
-        					</figure>
-        					<nav>
-								<hr>
-        						<ul>
-        							<li>
-        								<i class="fa fa-mobile"></i>
-        								<span>Fono:</span> 
-        								<a href="href="tel:+31555461656"">(02) 860 09 09</a>
-        							</li>
-        							<li>
-        								<i class="fa fa-envelope-o"></i>
-        								<span>Correo:</span>
-        								<a href="#gol">gricel@gricelsepulveda.cl</a>
-        							</li>
-        							<li>
-        								<i class="fa fa-link"></i>
-        								<span>Web:</span>
-        								<a href="http://www.gricelsepulveda.cl">http://www.gricelsepulveda.cl</a>
-        							</li>
-        						</ul>
-        					</nav>
-        				</div>
-      				</div>
-    			</section>
-    			<section class="servicios" data-uk-scrollspy="{cls:'uk-animation-fade'}">
-    				<div class="tab">16 de Marzo de 2016</div>
-      				<div class="contenedor"> 
-        				<div class="row no_margen cuerpo">
-							<article>
-        						<h3>Nombre del servicio</h3>
-        						<p>
-        							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud e
-        						</p>
-        					</article>
-        					<figure>
-        						<img src="img/relleno_05.jpg">
-        					</figure>
-        					<nav>
-								<hr>
-        						<ul>
-        							<li>
-        								<i class="fa fa-mobile"></i>
-        								<span>Fono:</span> 
-        								<a href="href="tel:+31555461656"">(02) 860 09 09</a>
-        							</li>
-        							<li>
-        								<i class="fa fa-envelope-o"></i>
-        								<span>Correo:</span>
-        								<a href="#gol">gricel@gricelsepulveda.cl</a>
-        							</li>
-        							<li>
-        								<i class="fa fa-link"></i>
-        								<span>Web:</span>
-        								<a href="http://www.gricelsepulveda.cl">http://www.gricelsepulveda.cl</a>
-        							</li>
-        						</ul>
-        					</nav>
-        				</div>
-      				</div>
-    			</section>
-    			<section class="servicios" data-uk-scrollspy="{cls:'uk-animation-fade'}">
-    				<div class="tab">16 de Marzo de 2016</div>
-      				<div class="contenedor"> 
-        				<div class="row no_margen cuerpo">
-							<article>
-        						<h3>Nombre del servicio</h3>
-        						<p>
-        							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
-        						</p>
-        					</article>
-        					<figure>
-        						<img src="img/relleno_06.jpg">
-        					</figure>
-        					<nav>
-								<hr>
-        						<ul>
-        							<li>
-        								<i class="fa fa-mobile"></i>
-        								<span>Fono:</span> 
-        								<a href="href="tel:+31555461656"">(02) 860 09 09</a>
-        							</li>
-        							<li>
-        								<i class="fa fa-envelope-o"></i>
-        								<span>Correo:</span>
-        								<a href="#gol">gricel@gricelsepulveda.cl</a>
-        							</li>
-        							<li>
-        								<i class="fa fa-link"></i>
-        								<span>Web:</span>
-        								<a href="http://www.gricelsepulveda.cl">http://www.gricelsepulveda.cl</a>
-        							</li>
-        						</ul>
-        					</nav>
-        				</div>
-      				</div>
-    			</section>
-    			<section class="servicios" data-uk-scrollspy="{cls:'uk-animation-fade'}">
-    				<div class="tab">16 de Marzo de 2016</div>
-      				<div class="contenedor"> 
-        				<div class="row no_margen cuerpo">
-							<article>
-        						<h3>Nombre del servicio</h3>
-        						<p>
-        							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
-        						</p>
-        					</article>
-        					<figure>
-        						<img src="img/relleno_07.jpg">
-        					</figure>
-        					<nav>
-								<hr>
-        						<ul>
-        							<li>
-        								<i class="fa fa-mobile"></i>
-        								<span>Fono:</span> 
-        								<a href="href="tel:+31555461656"">(02) 860 09 09</a>
-        							</li>
-        							<li>
-        								<i class="fa fa-envelope-o"></i>
-        								<span>Correo:</span>
-        								<a href="#gol">gricel@gricelsepulveda.cl</a>
-        							</li>
-        							<li>
-        								<i class="fa fa-link"></i>
-        								<span>Web:</span>
-        								<a href="http://www.gricelsepulveda.cl">http://www.gricelsepulveda.cl</a>
-        							</li>
-        						</ul>
-        					</nav>
-        				</div>
-      				</div>
-    			</section>
+				<section ng-repeat="datos in servicio" class="servicios" ng-hide="{{datos.estado == 'espera' }}">
+                    <div class="tab">{{datos.fecha}}</div>
+                    <div class="contenedor"> 
+                        <div class="row no_margen cuerpo">
+                            <article>
+                                <h3>{{datos.producto}}</h3>
+                                <p>
+                                    {{datos.descripcion}}
+                                </p>
+                            </article>
+                            <figure>
+                                <img src="files/{{datos.imagen}}">
+                            </figure>
+                            <nav>
+                                <hr>
+                                <ul>
+                                    <li ng-hide="{{datos.fono == 'undefined' }}">
+                                        <i class="fa fa-mobile"></i>
+                                        <span>Fono:</span> 
+                                        <a href="href=">{{datos.fono}}</a>
+                                    </li>
+                                    <li ng-hide="{{datos.correo == 'undefined' }}">
+                                        <i class="fa fa-envelope-o"></i>
+                                        <span>Correo:</span>
+                                        <a href="#gol">{{datos.correo}}</a>
+                                    </li>
+                                    <li ng-hide="{{datos.web == 'undefined' }}">
+                                        <i class="fa fa-link"></i>
+                                        <span>Web:</span>
+                                        <a href="https://{{datos.web}}">{{datos.web}}</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+        
+                </section>
 			</div>
 		</div>
 	</div> 
+    </div>

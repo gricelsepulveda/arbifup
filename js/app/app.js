@@ -61,6 +61,10 @@
             templateUrl:'angular_pages/designaciones.html',
             controller:'designacionesController',
         })
+        .when('/servicios',{
+            templateUrl:'angular_pages/servicios.html',
+            controller:'serviciosController',
+        })
        
         $httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
     }])

@@ -51,12 +51,28 @@ class Welcome extends CI_Controller {
 		}
 		
 		echo json_encode($estado);	
-		
 	}
-	public function catalogo()
+	function ajax()
 	{
-		redirect(base_url().'catalogo');
-		
+		$this->load->model('Modpagina');
+		$caso = $_POST['case'];
+			
+			switch($caso)
+			{
+				case 1:
+					$datos = $this->Modpagina->traer_slider();
+					echo json_encode($datos);
+				break;
+				case 2:
+					$datos = $this->Modpagina->traer_noticias_arbifup();
+					echo json_encode($datos);
+				break;
+				case 3:
+					$datos = $this->Modpagina->traer_noticias_futbol();
+					echo json_encode($datos);
+				break;
+			}
 	}
+
 }
 
